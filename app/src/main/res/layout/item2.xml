@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <com.shinelw.library.ColorArcProgressBar
+        android:id="@+id/bar_one"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="50dp"
+        app:back_color="@android:color/darker_gray"
+        app:back_width="2dp"
+        app:front_color1="#00ff00"
+        app:front_color2="#ffff00"
+        app:front_color3="#ff0000"
+        app:front_width="10dp"
+        app:is_need_content="true"
+        app:is_need_dial="true"
+        app:is_need_title="true"
+        app:is_need_unit="true"
+        app:max_value="20000"
+        app:string_title="总发电量"
+        app:string_unit="kw"
+        app:total_engle="270" />
+<include layout="@layout/main_item_2"/>
+</LinearLayout>

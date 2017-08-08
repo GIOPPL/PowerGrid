@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="#000000"
+    android:layout_height="wrap_content">
+
+    <RadioGroup
+        android:id="@+id/rg_main_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:gravity="center_vertical"
+        android:orientation="horizontal">
+
+        <RadioButton
+            android:id="@+id/rbtn_main_one"
+            style="@style/bottomStyle"
+            android:drawableTop="@drawable/rbtn_bottom_conclusion"
+            android:textColor="@drawable/rbtn_bottom_text"
+            android:text="总览" />
+
+        <RadioButton
+            android:id="@+id/rbtn_main_two"
+            style="@style/bottomStyle"
+
+            android:drawableTop="@drawable/rbtn_bottom_control"
+            android:textColor="@drawable/rbtn_bottom_text"
+            android:text="控制"/>
+
+        <RadioButton
+            android:id="@+id/rbtn_main_three"
+            style="@style/bottomStyle"
+            android:drawableTop="@drawable/rbtn_bottom_data"
+            android:textColor="@drawable/rbtn_bottom_text"
+            android:text="数据" />
+
+        <RadioButton
+            android:id="@+id/rbtn_main_four"
+            style="@style/bottomStyle"
+            android:drawableTop="@drawable/rbtn_bottom_status"
+            android:textColor="@drawable/rbtn_bottom_text"
+            android:text="状态" />
+    </RadioGroup>
+</LinearLayout>
