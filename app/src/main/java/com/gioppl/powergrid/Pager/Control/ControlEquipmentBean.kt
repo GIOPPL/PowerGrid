@@ -4,7 +4,7 @@ package com.gioppl.powergrid.Pager.Control
  * Created by GIOPPL on 2017/8/8.
  */
 class ControlEquipmentBean {
-    var name:String?="逆变器"
+    var name:String?="A座行政楼"
     var equipmentInfo:ArrayList<Equipment> = ArrayList()
     public class Equipment{
         var equName:String?="逆变器"

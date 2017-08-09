@@ -1,10 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/RV_control"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:id="@+id/lin_control"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
-</LinearLayout>
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="50dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:background="@drawable/btn_shade"
+                android:id="@+id/tv_control_makeElectric"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="发电"
+                android:textColor="#fefefe"
+                android:textSize="30sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000000"
+                android:gravity="center" />
+
+            <TextView
+                android:textColor="#fefefe"
+                android:background="@drawable/btn_shade"
+                android:id="@+id/tv_control_useElectric"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="用电"
+                android:textSize="30sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000000" />
+
+            <TextView
+                android:textColor="#fefefe"
+                android:background="@drawable/btn_shade"
+                android:id="@+id/tv_control_otherElectric"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="其他"
+                android:textSize="30sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:background="#000000" />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/RV_control"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+    </LinearLayout>
+
+    <com.getbase.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fbtn_control_manageImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_marginBottom="10dp"
+        android:layout_marginRight="10dp"
+        fab:fab_colorNormal="#1296DB"
+        fab:fab_colorPressed="#1296DB"
+        android:translationZ="10dp"
+        fab:fab_icon="@drawable/photo" />
+
+    <com.gioppl.powergrid.Function.PinchImageView
+        android:id="@+id/pim_control"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:scaleType="fitXY"
+        android:src="@mipmap/manage_control" />
+</RelativeLayout>

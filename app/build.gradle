@@ -40,6 +40,7 @@ dependencies {
     compile project(':progresslibrary')
     compile 'com.github.songixan:SmileRefresh:1.1'
     compile 'com.zhy:okhttputils:2.6.2'
+    compile 'com.getbase:floatingactionbutton:1.9.1'
 //    compile 'com.geejoe:edgeslidingback:1.0.4'
 
 }
