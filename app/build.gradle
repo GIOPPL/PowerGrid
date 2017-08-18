@@ -34,6 +34,10 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     compile 'com.github.jdsjlzx:LRecyclerView:1.4.3'
     compile 'com.facebook.fresco:fresco:0.12.0'
+    compile 'com.facebook.fresco:animated-gif:0.12.0'
+    // 支持 WebP （静态图+动图），需要添加
+    compile 'com.facebook.fresco:animated-webp:0.12.0'
+    compile 'com.facebook.fresco:webpsupport:0.12.0'
     compile 'com.github.lecho:hellocharts-library:1.5.8@aar'
     compile 'me.relex:circleindicator:1.2.2@aar'
     compile 'com.github.zzz40500:android-shapeLoadingView:1.0.3.2'
@@ -41,8 +45,7 @@ dependencies {
     compile 'com.github.songixan:SmileRefresh:1.1'
     compile 'com.zhy:okhttputils:2.6.2'
     compile 'com.getbase:floatingactionbutton:1.9.1'
-//    compile 'com.geejoe:edgeslidingback:1.0.4'
-
+    compile 'com.yarolegovich:sliding-root-nav:1.0.2'
 }
 repositories {
     mavenCentral()

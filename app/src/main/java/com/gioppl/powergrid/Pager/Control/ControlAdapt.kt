@@ -2,9 +2,9 @@ package com.gioppl.powergrid.Pager.Control
 
 import android.app.Activity
 import android.support.v7.widget.DividerItemDecoration
-import android.support.v7.widget.GridLayoutManager
-import android.support.v7.widget.OrientationHelper
+import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
+import android.support.v7.widget.StaggeredGridLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,9 +41,10 @@ class ControlAdapt(mList: ArrayList<ControlEquipmentBean>, activity: Activity) :
             tv_place = itemView!!.findViewById(R.id.tv_controlItem_place) as TextView?
             val mRV = itemView!!.findViewById(R.id.RV_control_item) as RecyclerView
             val mAdapt = ControlItemAdapt(activity!!)
-            val layoutManager = GridLayoutManager(itemView.context, 2);
-            layoutManager.setOrientation(OrientationHelper.HORIZONTAL);
-            layoutManager.isSmoothScrollbarEnabled = true
+//            val layoutManager = GridLayoutManager(itemView.context, 2);
+            val layoutManager=StaggeredGridLayoutManager(2,LinearLayoutManager.HORIZONTAL)
+//            layoutManager.setOrientation(OrientationHelper.HORIZONTAL);
+//            layoutManager.isSmoothScrollbarEnabled = true
             mRV.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.HORIZONTAL));
             mRV.addItemDecoration(DividerItemDecoration(activity, DividerItemDecoration.VERTICAL));
             mRV.layoutManager = layoutManager

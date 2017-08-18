@@ -14,8 +14,8 @@
 
         <com.facebook.drawee.view.SimpleDraweeView
             android:id="@+id/fim_four_head"
-            android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
             fresco:actualImageScaleType="focusCrop"
             fresco:fadeDuration="300"
             fresco:failureImageScaleType="centerInside"
@@ -31,12 +31,12 @@
             fresco:roundedCornerRadius="1dp"
             fresco:roundingBorderWidth="2dp" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="GIOPPL(管理员)"
-            android:textColor="#000000"
-            android:textSize="15sp" />
+        <!--<TextView-->
+            <!--android:layout_width="wrap_content"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:text="GIOPPL(管理员)"-->
+            <!--android:textColor="#000000"-->
+            <!--android:textSize="15sp" />-->
     </LinearLayout>
 
     <View
