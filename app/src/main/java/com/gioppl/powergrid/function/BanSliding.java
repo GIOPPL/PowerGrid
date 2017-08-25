@@ -1,4 +1,4 @@
-package com.gioppl.powergrid.Function;
+package com.gioppl.powergrid.function;
 
 import android.content.Context;
 import android.support.v4.view.ViewPager;

@@ -1,4 +1,4 @@
-package com.gioppl.powergrid.Function;
+package com.gioppl.powergrid.function;
 
 import android.animation.ValueAnimator;
 import android.content.Context;

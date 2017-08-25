@@ -84,7 +84,7 @@
         android:translationZ="10dp"
         fab:fab_icon="@drawable/photo" />
 
-    <com.gioppl.powergrid.Function.PinchImageView
+    <com.gioppl.powergrid.function.PinchImageView
         android:id="@+id/pim_control"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

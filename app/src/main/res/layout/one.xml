@@ -13,7 +13,7 @@
         android:id="@+id/refreshView_one"
         tools:context="com.songxian.smilerefresh.MainActivity">
 
-        <include layout="@layout/item2"/>
+        <include layout="@layout/conclusion_extra"/>
 
     </com.song.refresh_view.PullToRefreshView>
 

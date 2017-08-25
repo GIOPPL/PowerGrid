@@ -1,26 +1,33 @@
 package com.gioppl.powergrid.Pager.Conclusion
 
+import android.content.Context
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
 import android.widget.ImageView
 import android.widget.LinearLayout
+import android.widget.TextView
+import com.facebook.drawee.backends.pipeline.Fresco
+import com.facebook.drawee.view.SimpleDraweeView
 import com.gioppl.powergrid.R
-import com.shinelw.library.ColorArcProgressBar
+import com.gioppl.powergrid.bean.ConclusionEntity
+import com.gioppl.powergrid.present.ConclusionPresent
+import com.gioppl.powergrid.view.ConclusionView
 import com.song.refresh_view.PullToRefreshView
-
+import java.util.*
 
 
 /**
  * Created by GIOPPL on 2017/7/24.
  */
-class One : Fragment(){
-
+class One : Fragment(),ConclusionView{
+    var present:ConclusionPresent?=null
     var im_light: ImageView?=null
-    var bar: ColorArcProgressBar?=null//总发电轮盘
     var mRefreshView: PullToRefreshView?=null//下拉刷新控件
     var lin_light:LinearLayout?=null//光照
     var lin_time:LinearLayout?=null//运行时间
@@ -28,23 +35,55 @@ class One : Fragment(){
     var lin_temperature:LinearLayout?=null//温度
     var lin_warning:LinearLayout?=null//报警
     var lin_equipment:LinearLayout?=null//设备总数
+    var fim_head: SimpleDraweeView?=null//动态图
+
+    //gif图中的数据
+    var tv_GFZGL:TextView?=null
+    var tv_CNZGL:TextView?=null
+    var tv_FZZGL:TextView?=null
+    var tv_LLXZGL:TextView?=null
+
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?)
             = inflater!!.inflate(R.layout.one, container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         initView()
-//        OneNetWork(object :getDataSuccessful {
-//            override fun success() {
-//
-//            }
-//
-//            override fun downImage(response: Bitmap?) {
-//                im_light!!.setImageBitmap(response)
-//            }
-//
-//
-//        })
+        initGif()
+        present= ConclusionPresent((activity as Context?)!!)
+        present!!.onCreate()
+        present!!.getData(this)
+        //开启一个主动刷新的线程
+        refreshThread()
+    }
+
+    private fun refreshThread() {
+            Thread(Runnable {
+                while (true){
+                    Thread(Runnable {
+                        present!!.getData(this)
+                    }).start()
+                    Thread.sleep(10000)
+                }
+
+            }).start()
+//        val timeUpdate = TimeUpdate(present!!,this)
+//        val timer=Timer()
+//        timer.schedule(timeUpdate,1000)
+    }
+
+    private fun initGif() {
+        fim_head= activity.findViewById(R.id.fim_four_head) as SimpleDraweeView?
+        val mDrawerController = Fresco.newDraweeControllerBuilder()
+                .setAutoPlayAnimations(true)
+                //加载drawable里的一张gif图
+                .setUri(Uri.parse("res://drawable/" + R.drawable.power))//设置uri
+                .build()
+        fim_head!!.setController(mDrawerController)
+        tv_CNZGL= activity.findViewById(R.id.tv_con_CNZGL) as TextView?
+        tv_GFZGL= activity.findViewById(R.id.tv_con_GFZGL) as TextView?
+        tv_FZZGL= activity.findViewById(R.id.tv_con_FZZGL) as TextView?
+        tv_LLXZGL= activity.findViewById(R.id.tv_con_LLXZGL) as TextView?
     }
 
     private fun initView() {
@@ -57,16 +96,41 @@ class One : Fragment(){
         lin_equipment= activity.findViewById(R.id.lin_main_equipment) as LinearLayout?
 
         mRefreshView= activity.findViewById(R.id.refreshView_one) as PullToRefreshView?
-        bar= activity.findViewById(R.id.bar_one) as ColorArcProgressBar?;
+
         mRefreshView!!.setColorSchemeColors(Color.RED, Color.BLUE) // 颜色
         mRefreshView!!.setSmileStrokeWidth(8f) // 设置绘制的笑脸的宽度
         mRefreshView!!.setSmileInterpolator(LinearInterpolator()) // 笑脸动画转动的插值器
         mRefreshView!!.setSmileAnimationDuration(2000) // 设置笑脸旋转动画的时长
         //设置下拉刷新监听
         mRefreshView!!.setOnRefreshListener(PullToRefreshView.OnRefreshListener {
-            bar!!.setCurrentValues(14998.77f)
+            present!!.getData(this)
         })
-
+    }
+    override fun onSuccess(mConclusionEntity: ConclusionEntity) {
+        log(mConclusionEntity.overview.toString())
+        tv_CNZGL!!.text="功率:"+mConclusionEntity.overview.cnzgl
+        tv_FZZGL!!.text="功率:"+mConclusionEntity.overview.fzzgl
+        tv_GFZGL!!.text= "功率:"+mConclusionEntity.overview.gfzgl
+        tv_LLXZGL!!.text="功率:"+mConclusionEntity.overview.bwzgl
+        mRefreshView!!.isRefreshing=false
     }
 
+    override fun onError(e: String) {
+        //
+    }
+
+    override fun onPause() {
+        super.onPause()
+        present!!.onStop()
+    }
+    fun log(text:String){
+        Log.i("##",text)
+    }
+
+    class TimeUpdate(private val present:ConclusionPresent,private val view:ConclusionView):TimerTask(){
+        override fun run() {
+            present.getData(view)
+            Log.i("**","1次")
+        }
+    }
 }

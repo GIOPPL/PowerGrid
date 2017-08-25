@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:paddingTop="5dp"
+    android:paddingBottom="5dp"
+    android:paddingLeft="5dp"
+    android:paddingRight="5dp"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:background="@drawable/shape_rect_black"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/lin_main_light"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/im_main_light"
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/lantern" />
+
+            <TextView
+                android:id="@+id/tv_conclusion_light"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="风速:"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_main_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/clock" />
+
+            <TextView
+                android:id="@+id/tv_conclusion_time"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="运行时间:1730天"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lin_main_power"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@mipmap/leaf" />
+
+            <TextView
+                android:id="@+id/tv_conclusion_power"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="总节能:0.05T"
+                android:textSize="12sp" />
+        </LinearLayout>
+
+    </LinearLayout>
+</LinearLayout>

@@ -4,15 +4,17 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
 import android.support.v4.app.FragmentPagerAdapter
+import android.util.Log
+import android.view.MotionEvent
 import android.view.View
 import android.widget.RadioGroup
 import android.widget.Toast
-import com.gioppl.powergrid.Function.BanSliding
 import com.gioppl.powergrid.Pager.Conclusion.One
 import com.gioppl.powergrid.Pager.Control.Control
 import com.gioppl.powergrid.Pager.Data.Three
 import com.gioppl.powergrid.Pager.SlidingDrawer
 import com.gioppl.powergrid.Pager.Status.Status
+import com.gioppl.powergrid.function.BanSliding
 import com.yarolegovich.slidingrootnav.SlideGravity
 import com.yarolegovich.slidingrootnav.SlidingRootNav
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder
@@ -73,5 +75,13 @@ class MainActivity : FragmentActivity() {
     }
     public fun back(view:View){
         mSliding!!.openMenu()
+    }
+
+    override fun onTouchEvent(event: MotionEvent?): Boolean {
+        log(event!!.x.toString()+","+event!!.y.toString())
+        return super.onTouchEvent(event)
+    }
+    fun log(text:String){
+        Log.i("##",text)
     }
 }

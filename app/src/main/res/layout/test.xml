@@ -2,6 +2,7 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
 
     <View
@@ -9,36 +10,26 @@
         android:layout_height="200dp"
         android:background="#a0d9f6" />
 
-    <!--<TextView-->
-        <!--android:id="@+id/textView2"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignTop="@+id/fim_four_head"-->
-        <!--android:layout_marginTop="14dp"-->
-        <!--android:layout_toStartOf="@+id/fim_four_head"-->
-        <!--android:text="1000.00kw" />-->
+    <com.shinelw.library.ColorArcProgressBar
+        android:id="@+id/bar_one"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="50dp"
+        app:back_color="@android:color/darker_gray"
+        app:back_width="2dp"
+        app:front_color1="#00ff00"
+        app:front_color2="#ffff00"
+        app:front_color3="#ff0000"
+        app:front_width="10dp"
+        app:is_need_content="true"
+        app:is_need_dial="true"
+        app:is_need_title="true"
+        app:is_need_unit="true"
+        app:max_value="20000"
+        app:string_title="总发电量"
+        app:string_unit="kw"
+        app:total_engle="270" />
 
-    <!--<TextView-->
-        <!--android:id="@+id/textView3"-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_alignBottom="@+id/fim_four_head"-->
-        <!--android:layout_toStartOf="@+id/fim_four_head"-->
-        <!--android:text="1000.00kw" />-->
 
-    <!--<TextView-->
-        <!--android:layout_width="wrap_content"-->
-        <!--android:layout_height="wrap_content"-->
-        <!--android:layout_above="@+id/textView3"-->
-        <!--android:layout_marginBottom="37dp"-->
-        <!--android:layout_toStartOf="@+id/fim_four_head"-->
-        <!--android:text="1000.00kw" />-->
-
-    <com.facebook.drawee.view.SimpleDraweeView
-        android:id="@+id/fim_four_head"
-        android:layout_width="258dp"
-        android:layout_height="160dp"
-        android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="28dp" />
 </RelativeLayout>

@@ -26,7 +26,7 @@ class ControlAdapt(mList: ArrayList<ControlEquipmentBean>, activity: Activity) :
 
 
     override fun onBindViewHolder(holder: MyViewHolder?, position: Int) {
-        holder!!.tv_place!!.setText(mList!!.get(position).name)//设置文字
+        holder!!.tv_place!!.text=mList!![position].name
     }
 
     inner class MyViewHolder(itemView: View?) : RecyclerView.ViewHolder(itemView) {

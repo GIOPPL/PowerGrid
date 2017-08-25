@@ -10,7 +10,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.LinearLayout
 import com.getbase.floatingactionbutton.FloatingActionButton
-import com.gioppl.powergrid.Function.PinchImageView
+import com.gioppl.powergrid.function.PinchImageView
 import com.gioppl.powergrid.R
 
 /**
