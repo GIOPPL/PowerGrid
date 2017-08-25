@@ -6,8 +6,9 @@ package com.gioppl.powergrid.bean;
 
 public class ConclusionEntity {
 
+
     /**
-     * overview : {"CNZGL":"5.1kW","FS":"0m/s","BWZGL":"2.1kW","FZZGL":"5kW","WD":"31.1 °C","RZ":"4W/m²","MODE":"离网VF","GFZGL":"4.512kW"}
+     * overview : {"CNZGL":"67.6kW","FS":"0m/s","BWZGL":"2.1kW","FZZGL":"5kW","WD":"31.1 °C","RZ":"4W/m²","RFDL":"99kWh","MODE":"离网VF","GFZGL":"4.512kW","ZFDL":"0kWh"}
      */
 
     private OverviewBean overview;
@@ -22,14 +23,16 @@ public class ConclusionEntity {
 
     public static class OverviewBean {
         /**
-         * CNZGL : 5.1kW 储能总功率!
-         * FS : 0m/s 风速
-         * BWZGL : 2.1kW 并网总功率!
-         * FZZGL : 5kW 负载总功率!
-         * WD : 31.1 °C 温度
-         * RZ : 4W/m² 光照
-         * MODE : 离网VF 模式
-         * GFZGL : 4.512kW 光伏总功率!
+         * CNZGL : 67.6kW
+         * FS : 0m/s
+         * BWZGL : 2.1kW
+         * FZZGL : 5kW
+         * WD : 31.1 °C
+         * RZ : 4W/m²
+         * RFDL : 99kWh
+         * MODE : 离网VF
+         * GFZGL : 4.512kW
+         * ZFDL : 0kWh
          */
 
         private String CNZGL;
@@ -38,8 +41,10 @@ public class ConclusionEntity {
         private String FZZGL;
         private String WD;
         private String RZ;
+        private String RFDL;
         private String MODE;
         private String GFZGL;
+        private String ZFDL;
 
         public String getCNZGL() {
             return CNZGL;
@@ -89,6 +94,14 @@ public class ConclusionEntity {
             this.RZ = RZ;
         }
 
+        public String getRFDL() {
+            return RFDL;
+        }
+
+        public void setRFDL(String RFDL) {
+            this.RFDL = RFDL;
+        }
+
         public String getMODE() {
             return MODE;
         }
@@ -105,19 +118,12 @@ public class ConclusionEntity {
             this.GFZGL = GFZGL;
         }
 
-        @Override
-        public String toString() {
-            return "OverviewBean{" +
-                    "CNZGL='" + CNZGL + '\'' +
-                    ", FS='" + FS + '\'' +
-                    ", BWZGL='" + BWZGL + '\'' +
-                    ", FZZGL='" + FZZGL + '\'' +
-                    ", WD='" + WD + '\'' +
-                    ", RZ='" + RZ + '\'' +
-                    ", MODE='" + MODE + '\'' +
-                    ", GFZGL='" + GFZGL + '\'' +
-                    '}';
+        public String getZFDL() {
+            return ZFDL;
+        }
+
+        public void setZFDL(String ZFDL) {
+            this.ZFDL = ZFDL;
         }
     }
-
 }

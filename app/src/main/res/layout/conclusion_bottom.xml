@@ -26,7 +26,7 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@mipmap/weatherglass" />
+                android:src="@mipmap/temperature" />
 
             <TextView
                 android:id="@+id/tv_conclusion_temper"
@@ -49,6 +49,7 @@
                 android:src="@mipmap/warning" />
 
             <TextView
+                android:id="@+id/tv_conclusion_warning"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -65,13 +66,14 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@mipmap/equipment" />
+                android:src="@mipmap/power" />
 
             <TextView
+                android:id="@+id/tv_conclusion_power"
                 android:textSize="12sp"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="设备总数:300台" />
+                android:text="日发电量" />
         </LinearLayout>
 
     </LinearLayout>

@@ -27,13 +27,13 @@
                 android:id="@+id/im_main_light"
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@mipmap/lantern" />
+                android:src="@mipmap/light" />
 
             <TextView
                 android:id="@+id/tv_conclusion_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="风速:"
+                android:text="光照:"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -48,13 +48,13 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@mipmap/clock" />
+                android:src="@mipmap/model" />
 
             <TextView
-                android:id="@+id/tv_conclusion_time"
+                android:id="@+id/tv_conclusion_model"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="运行时间:1730天"
+                android:text="模式:"
                 android:textSize="12sp" />
         </LinearLayout>
 
@@ -69,13 +69,13 @@
             <ImageView
                 android:layout_width="50dp"
                 android:layout_height="50dp"
-                android:src="@mipmap/leaf" />
+                android:src="@mipmap/total_power" />
 
             <TextView
-                android:id="@+id/tv_conclusion_power"
+                android:id="@+id/tv_conclusion_totalPower"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="总节能:0.05T"
+                android:text="总发电:"
                 android:textSize="12sp" />
         </LinearLayout>
 
