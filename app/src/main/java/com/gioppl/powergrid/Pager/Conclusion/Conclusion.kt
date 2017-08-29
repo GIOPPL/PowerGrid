@@ -23,7 +23,7 @@ import java.util.*
 /**
  * Created by GIOPPL on 2017/7/24.
  */
-class One : Fragment(), ConclusionView {
+class Conclusion : Fragment(), ConclusionView {
     //图片
     //    var lin_light:LinearLayout?=null//光照
     //    var lin_time:LinearLayout?=null//运行时间

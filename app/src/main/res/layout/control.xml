@@ -16,15 +16,17 @@
             android:orientation="vertical">
 
             <TextView
+                android:onClick="makeE"
                 android:background="@drawable/btn_shade"
-                android:id="@+id/tv_control_makeElectric"
+                android:id="@+id/tv_control_makeE"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
+                android:clickable="true"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="发电"
+                android:text="光伏单元"
                 android:textColor="#fefefe"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -33,15 +35,17 @@
                 android:gravity="center" />
 
             <TextView
+                android:clickable="true"
+                android:onClick="storeE"
                 android:textColor="#fefefe"
                 android:background="@drawable/btn_shade"
-                android:id="@+id/tv_control_useElectric"
+                android:id="@+id/tv_control_storeE"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
-                android:text="用电"
-                android:textSize="30sp" />
+                android:text="储能单元"
+                android:textSize="20sp" />
 
             <View
                 android:layout_width="match_parent"
@@ -49,15 +53,35 @@
                 android:background="#000000" />
 
             <TextView
+                android:clickable="true"
+                android:onClick="useE"
                 android:textColor="#fefefe"
                 android:background="@drawable/btn_shade"
-                android:id="@+id/tv_control_otherElectric"
+                android:id="@+id/tv_control_useE"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:text="负载单元"
+                android:textSize="20sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#000000" />
+
+            <TextView
+                android:clickable="true"
+                android:onClick="otherE"
+                android:textColor="#fefefe"
+                android:background="@drawable/btn_shade"
+                android:id="@+id/tv_control_otherE"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:gravity="center"
                 android:text="其他"
-                android:textSize="30sp" />
+                android:textSize="20sp" />
         </LinearLayout>
 
         <View
@@ -85,6 +109,7 @@
         fab:fab_icon="@drawable/photo" />
 
     <com.gioppl.powergrid.function.PinchImageView
+        android:visibility="gone"
         android:id="@+id/pim_control"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

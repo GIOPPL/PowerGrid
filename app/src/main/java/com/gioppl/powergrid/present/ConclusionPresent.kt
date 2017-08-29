@@ -3,7 +3,7 @@ package com.gioppl.powergrid.present
 import android.content.Context
 import android.util.Log
 import com.gioppl.powergrid.bean.ConclusionEntity
-import com.gioppl.powergrid.netWork.RetrofitHelper
+import com.gioppl.powergrid.netWork.ConclusionRetrofitHelper
 import com.gioppl.powergrid.view.ConclusionView
 import rx.Observer
 import rx.android.schedulers.AndroidSchedulers
@@ -16,11 +16,11 @@ import rx.subscriptions.CompositeSubscription
 class ConclusionPresent(var context: Context){
     private var mConclusionView:ConclusionView?=null
     private var mCompositeSubscription:CompositeSubscription?=null
-    private var mHelper:RetrofitHelper?=null
+    private var mHelper: ConclusionRetrofitHelper?=null
 
     fun onCreate(){
         mCompositeSubscription= CompositeSubscription()
-        mHelper= RetrofitHelper()
+        mHelper= ConclusionRetrofitHelper()
 
     }
     fun onStop(){
@@ -28,7 +28,7 @@ class ConclusionPresent(var context: Context){
             mCompositeSubscription!!.unsubscribe()
     }
     fun getData(v:ConclusionView){
-        mCompositeSubscription!!.add(RetrofitHelper.getInstance()
+        mCompositeSubscription!!.add(ConclusionRetrofitHelper.getInstance()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(object : Observer<ConclusionEntity> {

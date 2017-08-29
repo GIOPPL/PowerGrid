@@ -1,6 +1,6 @@
 package com.gioppl.powergrid.netWork
 
-import com.gioppl.powergrid.bean.ConclusionEntity
+import com.gioppl.powergrid.bean.ControlEntity
 import com.google.gson.GsonBuilder
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -11,7 +11,7 @@ import rx.Observable
 /**
  * Created by GIOPPL on 2017/8/25.
  */
-class RetrofitHelper {
+class ControlRetrofitHelper {
     companion object {
         private val client=OkHttpClient()
         private val factory=GsonConverterFactory.create(GsonBuilder().create())
@@ -21,8 +21,8 @@ class RetrofitHelper {
                 .addConverterFactory(factory)
                 .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .build()
-        fun getInstance():Observable<ConclusionEntity>{
-            val cla=mRetrofit.create(GetConclusionData::class.java)
+        fun getInstance():Observable<ControlEntity>{
+            val cla=mRetrofit.create(GetControlData::class.java)
             val cla2= cla.getData()
             return cla2
         }

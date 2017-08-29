@@ -1,6 +1,7 @@
 package com.gioppl.powergrid.Pager.Control
 
 import android.app.Activity
+import android.content.Intent
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
@@ -8,6 +9,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.facebook.drawee.view.SimpleDraweeView
+import com.gioppl.powergrid.Pager.Control.ControlDetail.ControlDetail
 import com.gioppl.powergrid.R
 
 /**
@@ -30,6 +32,7 @@ class ControlItemAdapt( mActivity: Activity) : RecyclerView.Adapter<ControlItemA
         }
         holder!!.v_shade!!.setOnClickListener {
             holder!!.v_shade!!.visibility=View.GONE
+            mActivity!!.startActivity(Intent(mActivity,ControlDetail::class.java))
         }
     }
 

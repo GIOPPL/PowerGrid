@@ -9,7 +9,7 @@ import android.view.MotionEvent
 import android.view.View
 import android.widget.RadioGroup
 import android.widget.Toast
-import com.gioppl.powergrid.Pager.Conclusion.One
+import com.gioppl.powergrid.Pager.Conclusion.Conclusion
 import com.gioppl.powergrid.Pager.Control.Control
 import com.gioppl.powergrid.Pager.Data.Three
 import com.gioppl.powergrid.Pager.SlidingDrawer
@@ -59,7 +59,7 @@ class MainActivity : FragmentActivity() {
 
     private fun initPager() {
         viewPager = findViewById(R.id.viewpager) as BanSliding?
-        mPagerList.add(One())
+        mPagerList.add(Conclusion())
         mPagerList.add(Control())
         mPagerList.add(Three())
         mPagerList.add(Status())
