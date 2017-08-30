@@ -249,7 +249,7 @@ class ControlAdapt(mList: ArrayList<ControlEquipmentBean>, activity: Activity) :
     fun judgeImage(name:String):ImageSort{
         if (name.contains("逆变器")){
             return ImageSort.逆变器
-        }else if(name.contains("负载")){
+        }else if(name.contains("负载")||name.contains("预留")){
             return ImageSort.负载
         }else if(name.contains("锂电池")){
             return ImageSort.锂电池

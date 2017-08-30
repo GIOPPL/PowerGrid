@@ -7,16 +7,25 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.util.Log
 import android.view.LayoutInflater
+import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
+import android.view.animation.OvershootInterpolator
+import android.widget.ImageView
 import android.widget.TextView
+import com.bumptech.glide.Glide
+import com.bumptech.glide.load.engine.DiskCacheStrategy
+import com.bumptech.glide.request.RequestOptions
 import com.facebook.drawee.backends.pipeline.Fresco
 import com.facebook.drawee.view.SimpleDraweeView
 import com.gioppl.powergrid.R
 import com.gioppl.powergrid.bean.ConclusionEntity
 import com.gioppl.powergrid.present.ConclusionPresent
 import com.gioppl.powergrid.view.ConclusionView
+import com.robinhood.ticker.TickerUtils
+import com.robinhood.ticker.TickerView
 import com.song.refresh_view.PullToRefreshView
+import ezy.ui.view.BannerView
 import java.util.*
 
 
@@ -38,6 +47,7 @@ class Conclusion : Fragment(), ConclusionView {
 
     var fim_head: SimpleDraweeView? = null//动态图
 
+
     //gif图中的数据
     var tv_GFZGL: TextView? = null
     var tv_CNZGL: TextView? = null
@@ -45,14 +55,18 @@ class Conclusion : Fragment(), ConclusionView {
     var tv_LLXZGL: TextView? = null
 
     //轮播图
+    var banner1: BannerView<Any>? = null
+    //轮播公告
+    var tickerView: TickerView? = null
 
     //数据
-    var tv_temperature:TextView?=null
-    var tv_light:TextView?=null
-    var tv_warning:TextView?=null
-    var tv_totalPower:TextView?=null
-    var tv_model:TextView?=null
-    var tv_power:TextView?=null
+    var tv_temperature: TextView? = null
+    var tv_light: TextView? = null
+    var tv_warning: TextView? = null
+    var tv_totalPower: TextView? = null
+    var tv_model: TextView? = null
+    var tv_power: TextView? = null
+
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?)
             = inflater!!.inflate(R.layout.one, container, false)
@@ -62,6 +76,7 @@ class Conclusion : Fragment(), ConclusionView {
         initView()
         initGif()
         initRollImage()
+        initRollText()
         present = ConclusionPresent((activity as Context?)!!)
         present!!.onCreate()
         present!!.getData(this)
@@ -69,8 +84,21 @@ class Conclusion : Fragment(), ConclusionView {
         refreshThread()
     }
 
-    private fun initRollImage() {
+    private fun initRollText() {
+        tickerView = activity.findViewById(R.id.tickerView) as TickerView?
+        tickerView!!.setAnimationInterpolator(OvershootInterpolator ());
+        tickerView!!.setCharacterList(TickerUtils.getDefaultNumberList());
+        tickerView!!.setText(text.toString());
 
+    }
+
+    class BannerItem {
+        var image: String? = null
+        var title: String? = null
+
+        override fun toString(): String {
+            return title!!
+        }
     }
 
 
@@ -110,12 +138,12 @@ class Conclusion : Fragment(), ConclusionView {
 //        lin_warning = activity.findViewById(R.id.lin_main_warning) as LinearLayout?
 //        lin_equipment = activity.findViewById(R.id.lin_main_equipment) as LinearLayout?
 
-        tv_totalPower= activity.findViewById(R.id.tv_conclusion_totalPower) as TextView?
-        tv_light= activity.findViewById(R.id.tv_conclusion_light) as TextView?
-        tv_power= activity.findViewById(R.id.tv_conclusion_power) as TextView?
-        tv_temperature= activity.findViewById(R.id.tv_conclusion_temper) as TextView?
-        tv_model= activity.findViewById(R.id.tv_conclusion_model) as TextView?
-        tv_warning= activity.findViewById(R.id.tv_conclusion_warning) as TextView?
+        tv_totalPower = activity.findViewById(R.id.tv_conclusion_totalPower) as TextView?
+        tv_light = activity.findViewById(R.id.tv_conclusion_light) as TextView?
+        tv_power = activity.findViewById(R.id.tv_conclusion_power) as TextView?
+        tv_temperature = activity.findViewById(R.id.tv_conclusion_temper) as TextView?
+        tv_model = activity.findViewById(R.id.tv_conclusion_model) as TextView?
+        tv_warning = activity.findViewById(R.id.tv_conclusion_warning) as TextView?
 
         mRefreshView = activity.findViewById(R.id.refreshView_one) as PullToRefreshView?
         mRefreshView!!.setColorSchemeColors(Color.RED, Color.BLUE) // 颜色
@@ -128,19 +156,25 @@ class Conclusion : Fragment(), ConclusionView {
         })
     }
 
+
+    var text=1000
+    var string="你好"
     override fun onSuccess(mConclusionEntity: ConclusionEntity) {
         tv_CNZGL!!.text = "功率:" + mConclusionEntity.overview.cnzgl
         tv_FZZGL!!.text = "功率:" + mConclusionEntity.overview.fzzgl
         tv_GFZGL!!.text = "功率:" + mConclusionEntity.overview.gfzgl
         tv_LLXZGL!!.text = "功率:" + mConclusionEntity.overview.bwzgl
 
-        tv_totalPower!!.text="总发电量:"+mConclusionEntity.overview.zfdl
-        tv_model!!.text="模式:"+mConclusionEntity.overview.mode
-        tv_temperature!!.text="温度:"+mConclusionEntity.overview.wd
-        tv_power!!.text="日发电量:"+mConclusionEntity.overview.rfdl
-        tv_light!!.text="光照:"+mConclusionEntity.overview.rz
+        tv_totalPower!!.text = "总发电量:" + mConclusionEntity.overview.zfdl
+        tv_model!!.text = "模式:" + mConclusionEntity.overview.mode
+        tv_temperature!!.text = "温度:" + mConclusionEntity.overview.wd
+        tv_power!!.text = "日发电量:" + mConclusionEntity.overview.rfdl
+        tv_light!!.text = "光照:" + mConclusionEntity.overview.rz
 
         mRefreshView!!.isRefreshing = false
+        text+=1234
+        string+="你好"
+        tickerView!!.setText(text.toString()+string)
     }
 
     override fun onError(e: String) {
@@ -156,10 +190,40 @@ class Conclusion : Fragment(), ConclusionView {
         Log.i("##", text)
     }
 
-    class TimeUpdate(private val present: ConclusionPresent, private val view: ConclusionView) : TimerTask() {
-        override fun run() {
-            present.getData(view)
-            Log.i("**", "1次")
+
+    /**
+     * 下面是图片轮播的设置
+     */
+    var titles = arrayOf("光伏电网最新公告1", "光伏电网最新公告2", "光伏电网最新公告3", "光伏电网最新公告4", "光伏电网最新公告5", "光伏电网最新公告6")
+    val list = ArrayList<BannerItem>()
+    var urls = arrayOf(//750x500
+            "https://s2.mogucdn.com/mlcdn/c45406/170422_678did070ec6le09de3g15c1l7l36_750x500.jpg",
+            "https://s2.mogucdn.com/mlcdn/c45406/170420_1hcbb7h5b58ihilkdec43bd6c2ll6_750x500.jpg",
+            "http://s18.mogucdn.com/p2/170122/upload_66g1g3h491bj9kfb6ggd3i1j4c7be_750x500.jpg",
+            "http://s18.mogucdn.com/p2/170204/upload_657jk682b5071bi611d9ka6c3j232_750x500.jpg",
+            "http://s16.mogucdn.com/p2/170204/upload_56631h6616g4e2e45hc6hf6b7g08f_750x500.jpg",
+            "http://s16.mogucdn.com/p2/170206/upload_1759d25k9a3djeb125a5bcg0c43eg_750x500.jpg")
+
+    private fun initRollImage() {
+        for (i in urls.indices) {
+            val item = BannerItem()
+            item.image = urls[i]
+            item.title = titles[i]
+
+            list.add(item)
+        }
+        banner1 = activity.findViewById(R.id.banner1) as BannerView<Any>
+        banner1!!.setViewFactory(BannerViewFactory())
+        banner1!!.setDataList(list as List<Any>)
+        banner1!!.start()
+    }
+
+    class BannerViewFactory : BannerView.ViewFactory<BannerItem> {
+        override fun create(item: BannerItem, position: Int, container: ViewGroup): View {
+            val iv = ImageView(container.context)
+            val options = RequestOptions().diskCacheStrategy(DiskCacheStrategy.DATA)
+            Glide.with(container.context.applicationContext).load(item.image).apply(options).into(iv)
+            return iv
         }
     }
 }

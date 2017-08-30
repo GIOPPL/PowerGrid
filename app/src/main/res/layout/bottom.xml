@@ -25,20 +25,20 @@
 
             android:drawableTop="@drawable/rbtn_bottom_control"
             android:textColor="@drawable/rbtn_bottom_text"
-            android:text="控制"/>
+            android:text="设备"/>
 
         <RadioButton
             android:id="@+id/rbtn_main_three"
             style="@style/bottomStyle"
             android:drawableTop="@drawable/rbtn_bottom_data"
             android:textColor="@drawable/rbtn_bottom_text"
-            android:text="数据" />
+            android:text="调度" />
 
         <RadioButton
             android:id="@+id/rbtn_main_four"
             style="@style/bottomStyle"
             android:drawableTop="@drawable/rbtn_bottom_status"
             android:textColor="@drawable/rbtn_bottom_text"
-            android:text="状态" />
+            android:text="统计" />
     </RadioGroup>
 </LinearLayout>
