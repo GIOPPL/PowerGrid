@@ -1,4 +1,4 @@
-package com.gioppl.powergrid.Pager.Control.ControlDetail
+package com.gioppl.powergrid.Pager.Control2.ControlDetail
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
@@ -11,7 +11,7 @@ import com.gioppl.powergrid.view.ControlView
 /**
  * Created by GIOPPL on 2017/8/28.
  */
-class ControlDetail : AppCompatActivity(),ControlView {
+class ControlDetail2 : AppCompatActivity(),ControlView {
 
     var present:ControlPresent?=null
 

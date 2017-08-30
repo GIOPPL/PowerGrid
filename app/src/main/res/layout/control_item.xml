@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="horizontal">
@@ -10,19 +11,245 @@
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/tv_controlItem_place"
+            android:id="@+id/tv_control_place"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="#74cf05f2"
+            android:background="#74579be9"
             android:gravity="center"
             android:paddingBottom="10dp"
             android:paddingTop="10dp"
             android:text="A座行政楼"
             android:textColor="#fefefe" />
 
-        <android.support.v7.widget.RecyclerView
-            android:id="@+id/RV_control_item"
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/lin_control_1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/sim_control_1"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        fresco:placeholderImage="@drawable/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/tv_control_1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="逆变器" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
+
+                <LinearLayout
+                    android:id="@+id/lin_control_2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/sim_control_2"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        fresco:placeholderImage="@drawable/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/tv_control_2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="逆变器" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
+
+                <LinearLayout
+                    android:id="@+id/lin_control_3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/sim_control_3"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        fresco:placeholderImage="@drawable/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/tv_control_3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="逆变器" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/lin_control_4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/sim_control_4"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        fresco:placeholderImage="@drawable/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/tv_control_4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="逆变器" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
+
+                <LinearLayout
+                    android:id="@+id/lin_control_5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/sim_control_5"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        fresco:placeholderImage="@drawable/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/tv_control_5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="逆变器" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
+
+                <LinearLayout
+                    android:id="@+id/lin_control_6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/sim_control_6"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        fresco:placeholderImage="@drawable/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/tv_control_6"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="逆变器" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:id="@+id/lin_control_7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/sim_control_7"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        fresco:placeholderImage="@drawable/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/tv_control_7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="逆变器" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
+
+                <LinearLayout
+                    android:id="@+id/lin_control_8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/sim_control_8"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        fresco:placeholderImage="@drawable/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/tv_control_8"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="逆变器" />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp" />
+
+                <LinearLayout
+                    android:id="@+id/lin_control_9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <com.facebook.drawee.view.SimpleDraweeView
+                        android:id="@+id/sim_control_9"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
+                        fresco:placeholderImage="@drawable/ic_launcher" />
+
+                    <TextView
+                        android:id="@+id/tv_control_9"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_gravity="center_horizontal"
+                        android:text="逆变器" />
+                </LinearLayout>
+            </LinearLayout>
+        </LinearLayout>
     </LinearLayout>
 </LinearLayout>

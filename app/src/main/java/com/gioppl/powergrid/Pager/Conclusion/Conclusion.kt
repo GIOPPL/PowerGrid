@@ -129,7 +129,6 @@ class Conclusion : Fragment(), ConclusionView {
     }
 
     override fun onSuccess(mConclusionEntity: ConclusionEntity) {
-        log(mConclusionEntity.overview.toString())
         tv_CNZGL!!.text = "功率:" + mConclusionEntity.overview.cnzgl
         tv_FZZGL!!.text = "功率:" + mConclusionEntity.overview.fzzgl
         tv_GFZGL!!.text = "功率:" + mConclusionEntity.overview.gfzgl

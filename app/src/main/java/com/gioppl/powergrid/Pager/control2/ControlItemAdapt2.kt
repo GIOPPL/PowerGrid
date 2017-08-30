@@ -15,7 +15,7 @@ import com.gioppl.powergrid.R
 /**
  * Created by GIOPPL on 2017/8/8.
  */
-class ControlItemAdapt( mActivity: Activity,var mList:ArrayList<ControlEquipmentBean2.Equipment>) : RecyclerView.Adapter<ControlItemAdapt.MyViewHolder>() {
+class ControlItemAdapt2(mActivity: Activity, var mList:ArrayList<ControlEquipmentBean2.Equipment>) : RecyclerView.Adapter<ControlItemAdapt2.MyViewHolder>() {
     private var mActivity: Activity? = null
 
     init {
@@ -24,7 +24,7 @@ class ControlItemAdapt( mActivity: Activity,var mList:ArrayList<ControlEquipment
         this.mActivity = mActivity
     }
 
-    override fun onBindViewHolder(holder: ControlItemAdapt.MyViewHolder?, position: Int) {
+    override fun onBindViewHolder(holder: ControlItemAdapt2.MyViewHolder?, position: Int) {
         holder!!.sim_image!!.setImageURI(mList!!.get(position).imageUrl)
         holder!!.sim_image!!.setOnClickListener {
             holder!!.v_shade!!.visibility=View.VISIBLE
@@ -46,7 +46,7 @@ class ControlItemAdapt( mActivity: Activity,var mList:ArrayList<ControlEquipment
         }
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ControlItemAdapt.MyViewHolder?
+    override fun onCreateViewHolder(parent: ViewGroup?, viewType: Int): ControlItemAdapt2.MyViewHolder?
             = MyViewHolder(LayoutInflater.from(parent!!.context).inflate(R.layout.control_item_item, parent, false))
 
     override fun getItemCount() = mList!!.size
