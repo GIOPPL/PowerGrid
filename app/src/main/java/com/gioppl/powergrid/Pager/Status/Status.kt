@@ -14,10 +14,6 @@ import com.shinelw.library.ColorArcProgressBar
 class Status : Fragment(){
     var bar: ColorArcProgressBar?=null//总发电轮盘
 
-
-
-
-
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?)
             = inflater!!.inflate(R.layout.status, container, false)
 
@@ -25,15 +21,12 @@ class Status : Fragment(){
         super.onActivityCreated(savedInstanceState)
         initView()
 
-
-
-
     }
+
 
     private fun initView() {
         bar= activity.findViewById(R.id.bar_one) as ColorArcProgressBar?;
         bar!!.setCurrentValues(14998.77f)
-
 
     }
 }
