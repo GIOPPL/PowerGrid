@@ -20,16 +20,16 @@ class Three : Fragment() {
     var mList=ArrayList<EquipmentBean>()
     var mLRecyclerAdapt: LRecyclerViewAdapter?=null
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?)
-            = inflater!!.inflate(R.layout.three, container, false)
+            = inflater!!.inflate(R.layout.four, container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        initRV()
-        mList.clear();
-        mList.add(EquipmentBean("汇流器1","http://ac-qzlvbisn.clouddn.com/6044f5ddb81dad44dc00.png"))
-        mList.add(EquipmentBean("汇流器2","http://ac-qzlvbisn.clouddn.com/6044f5ddb81dad44dc00.png"))
-        mList.add(EquipmentBean("汇流器3","http://ac-qzlvbisn.clouddn.com/6044f5ddb81dad44dc00.png"))
-        mList.add(EquipmentBean("汇流器4","http://ac-qzlvbisn.clouddn.com/6044f5ddb81dad44dc00.png"))
+//        initRV()
+//        mList.clear();
+//        mList.add(EquipmentBean("汇流器1","http://ac-qzlvbisn.clouddn.com/6044f5ddb81dad44dc00.png"))
+//        mList.add(EquipmentBean("汇流器2","http://ac-qzlvbisn.clouddn.com/6044f5ddb81dad44dc00.png"))
+//        mList.add(EquipmentBean("汇流器3","http://ac-qzlvbisn.clouddn.com/6044f5ddb81dad44dc00.png"))
+//        mList.add(EquipmentBean("汇流器4","http://ac-qzlvbisn.clouddn.com/6044f5ddb81dad44dc00.png"))
     }
 
     private fun initRV() {

@@ -9,7 +9,6 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.LinearLayout
 import com.getbase.floatingactionbutton.FloatingActionButton
 import com.gioppl.powergrid.R
 import com.gioppl.powergrid.bean.ControlEntity
@@ -28,7 +27,6 @@ class Control : Fragment() , ControlView {
     var mList:ArrayList<ControlEquipmentBean> ?= ArrayList()
     var fbtn_image:FloatingActionButton?=null
     var pim_control: PinchImageView?=null
-    var lin_control: LinearLayout?=null
     var layoutManager :GridLayoutManager?=null
 
 
@@ -52,7 +50,6 @@ class Control : Fragment() , ControlView {
      * 数据与整体架构的图片切换
      */
     private fun initView() {
-        lin_control= activity.findViewById(R.id.lin_control) as LinearLayout?
         pim_control= activity.findViewById(R.id.pim_control) as PinchImageView?
         pim_control!!.visibility=View.GONE
         fbtn_image= activity.findViewById(R.id.fbtn_control_manageImage) as FloatingActionButton?
@@ -60,10 +57,8 @@ class Control : Fragment() , ControlView {
         fbtn_image!!.setOnClickListener {
             if (show%2==0){//显示控制界面
                 pim_control!!.visibility=View.GONE
-                lin_control!!.visibility=View.VISIBLE
             }else{
                 pim_control!!.visibility=View.VISIBLE
-                lin_control!!.visibility=View.GONE
             }
             show++
         }

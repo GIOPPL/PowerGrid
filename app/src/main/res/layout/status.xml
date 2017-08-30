@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <com.shinelw.library.ColorArcProgressBar
+        android:id="@+id/bar_one"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="50dp"
+        app:back_color="@android:color/darker_gray"
+        app:back_width="2dp"
+        app:front_color1="#00ff00"
+        app:front_color2="#ffff00"
+        app:front_color3="#ff0000"
+        app:front_width="10dp"
+        app:is_need_content="true"
+        app:is_need_dial="true"
+        app:is_need_title="true"
+        app:is_need_unit="true"
+        app:max_value="20000"
+        app:string_title="总发电量"
+        app:string_unit="kw"
+        app:total_engle="270" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:padding="5dp"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#da7f7f"
+            android:gravity="center"
+            android:text="日发电量"
+            android:textColor="#fefefe"
+            android:textSize="20sp"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#da7f7f"
+            android:gravity="center"
+            android:text="总发电量"
+            android:textColor="#fefefe"
+            android:textSize="20sp"/>
+        <View
+            android:layout_width="1dp"
+            android:layout_height="1dp"/>
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#da7f7f"
+            android:gravity="center"
+            android:text="负载耗电量"
+            android:textColor="#fefefe"
+            android:textSize="20sp"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#b34e4e"
+                android:gravity="center"
+                android:text="历史数据"
+                android:textColor="#fefefe"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#33105a"
+                android:gravity="center"
+                android:text="汇总数据"
+                android:textColor="#fefefe"
+                android:textSize="20sp" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#967979"
+                android:gravity="center"
+                android:text="历史报警"
+                android:textColor="#fefefe"
+                android:textSize="20sp" />
+
+            <TextView
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#47aaa5"
+                android:gravity="center"
+                android:text="操作记录"
+                android:textColor="#fefefe"
+                android:textSize="20sp" />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

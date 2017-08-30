@@ -19,7 +19,7 @@ class Status : Fragment(){
 
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?)
-            = inflater!!.inflate(R.layout.test, container, false)
+            = inflater!!.inflate(R.layout.status, container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

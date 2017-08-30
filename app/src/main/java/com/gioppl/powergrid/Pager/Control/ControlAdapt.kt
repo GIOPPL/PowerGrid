@@ -1,6 +1,7 @@
 package com.gioppl.powergrid.Pager.Control
 
 import android.app.Activity
+import android.content.Intent
 import android.net.Uri
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
@@ -9,6 +10,7 @@ import android.view.ViewGroup
 import android.widget.LinearLayout
 import android.widget.TextView
 import com.facebook.drawee.view.SimpleDraweeView
+import com.gioppl.powergrid.Pager.Control.ControlDetail.ControlDetail
 import com.gioppl.powergrid.R
 
 
@@ -27,6 +29,21 @@ class ControlAdapt(mList: ArrayList<ControlEquipmentBean>, activity: Activity) :
     override fun onBindViewHolder(holder: MyViewHolder?, position: Int) {
         holder!!.tv_place!!.text=mList!![position].name
         showImage(holder,position)
+        setOnclick(holder.lin1!!,position)
+        setOnclick(holder.lin2!!,position)
+        setOnclick(holder.lin3!!,position)
+        setOnclick(holder.lin4!!,position)
+        setOnclick(holder.lin5!!,position)
+        setOnclick(holder.lin6!!,position)
+        setOnclick(holder.lin7!!,position)
+        setOnclick(holder.lin8!!,position)
+        setOnclick(holder.lin9!!,position)
+    }
+
+    private fun  setOnclick(lin: LinearLayout,position: Int) {
+        lin.setOnClickListener(View.OnClickListener {
+            activity!!.startActivity(Intent(activity,ControlDetail::class.java))
+        })
     }
 
     private fun showImage(holder: MyViewHolder?, position: Int) {

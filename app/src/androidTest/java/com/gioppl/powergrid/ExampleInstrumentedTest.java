@@ -10,7 +10,7 @@ import org.junit.runner.RunWith;
 import static org.junit.Assert.*;
 
 /**
- * Instrumentation test, which will execute on an Android device.
+ * Instrumentation status, which will execute on an Android device.
  *
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
@@ -18,7 +18,7 @@ import static org.junit.Assert.*;
 public class ExampleInstrumentedTest {
     @Test
     public void useAppContext() throws Exception {
-        // Context of the app under test.
+        // Context of the ic_launcher under status.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
         assertEquals("com.gioppl.powergrid", appContext.getPackageName());
