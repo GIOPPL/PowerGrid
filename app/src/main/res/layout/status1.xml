@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
-    <include layout="@layout/top_back" />
     <com.song.refresh_view.PullToRefreshView
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:id="@+id/refreshView_controlDetail">
-        <include layout="@layout/control_detail2"/>
+        android:id="@+id/refreshView_one"
+        tools:context="com.songxian.smilerefresh.MainActivity">
+
+        <include layout="@layout/status2"/>
+
     </com.song.refresh_view.PullToRefreshView>
+
 </LinearLayout>

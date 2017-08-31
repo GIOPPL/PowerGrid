@@ -1,5 +1,6 @@
 package com.gioppl.powergrid.Pager.Control
 
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.widget.GridLayoutManager
@@ -9,12 +10,14 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.view.animation.LinearInterpolator
 import com.getbase.floatingactionbutton.FloatingActionButton
 import com.gioppl.powergrid.R
 import com.gioppl.powergrid.bean.ControlEntity
 import com.gioppl.powergrid.function.PinchImageView
 import com.gioppl.powergrid.present.ControlPresent
 import com.gioppl.powergrid.view.ControlView
+import com.song.refresh_view.PullToRefreshView
 
 /**
  * Created by GIOPPL on 2017/7/24.
@@ -28,10 +31,12 @@ class Control : Fragment() , ControlView {
     var fbtn_image:FloatingActionButton?=null
     var pim_control: PinchImageView?=null
     var layoutManager :GridLayoutManager?=null
+    //下拉刷新
+    var mRefreshView:PullToRefreshView?=null
 
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?)
-            = inflater!!.inflate(R.layout.control2, container, false)!!
+            = inflater!!.inflate(R.layout.control, container, false)!!
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -50,6 +55,7 @@ class Control : Fragment() , ControlView {
      * 数据与整体架构的图片切换
      */
     private fun initView() {
+
         pim_control= activity.findViewById(R.id.pim_control) as PinchImageView?
         pim_control!!.visibility=View.GONE
         fbtn_image= activity.findViewById(R.id.fbtn_control_manageImage) as FloatingActionButton?
@@ -63,6 +69,15 @@ class Control : Fragment() , ControlView {
             show++
         }
 
+        mRefreshView= activity.findViewById(R.id.refreshView_control) as PullToRefreshView?
+        mRefreshView!!.setColorSchemeColors(Color.RED, Color.BLUE) // 颜色
+        mRefreshView!!.setSmileStrokeWidth(8f) // 设置绘制的笑脸的宽度
+        mRefreshView!!.setSmileInterpolator(LinearInterpolator()) // 笑脸动画转动的插值器
+        mRefreshView!!.setSmileAnimationDuration(2000) // 设置笑脸旋转动画的时长
+        //设置下拉刷新监听
+        mRefreshView!!.setOnRefreshListener(PullToRefreshView.OnRefreshListener {
+            present!!.getData(this)
+        })
     }
 
     //初始化recyclerView
@@ -114,14 +129,24 @@ class Control : Fragment() , ControlView {
         bean3.equipmentInfo=beanList3!!
         mList!!.add(bean3)
         mAdapt!!.notifyDataSetChanged()
+        mRefreshView!!.isRefreshing = false
     }
 
     override fun onError(e: String) {
         log("error:"+e)
     }
 
+    override fun onPause() {
+        super.onPause()
+        present!!.onStop()
+    }
     override fun onStop() {
         super.onStop()
+        present!!.onStop()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
         present!!.onStop()
     }
 

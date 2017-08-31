@@ -1,13 +1,17 @@
 package com.gioppl.powergrid.Pager.Control.ControlDetail
 
+import android.graphics.Color
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.util.Log
+import android.view.View
+import android.view.animation.LinearInterpolator
 import com.gioppl.powergrid.R
 import com.gioppl.powergrid.bean.ControlDetailEntity
 import com.gioppl.powergrid.eventBus.ControlDetailEventBus
 import com.gioppl.powergrid.present.ControlDetailPresent
 import com.gioppl.powergrid.view.ControlDetailView
+import com.song.refresh_view.PullToRefreshView
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 import org.greenrobot.eventbus.ThreadMode
@@ -21,15 +25,32 @@ class ControlDetail : AppCompatActivity(),ControlDetailView {
 
     var present:ControlDetailPresent?=null
     var name:EquipmentName?=null
+    var eventBus: ControlDetailEventBus?=null//上一个界面传过来的数据
+    //下拉刷新
+    var mRefreshView: PullToRefreshView?=null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.control_detail)
         EventBus.getDefault().register(this)
+        initView()
+    }
+
+    private fun initView() {
+        mRefreshView= findViewById(R.id.refreshView_controlDetail) as PullToRefreshView?
+        mRefreshView!!.setColorSchemeColors(Color.RED, Color.BLUE) // 颜色
+        mRefreshView!!.setSmileStrokeWidth(8f) // 设置绘制的笑脸的宽度
+        mRefreshView!!.setSmileInterpolator(LinearInterpolator()) // 笑脸动画转动的插值器
+        mRefreshView!!.setSmileAnimationDuration(2000) // 设置笑脸旋转动画的时长
+        //设置下拉刷新监听
+        mRefreshView!!.setOnRefreshListener(PullToRefreshView.OnRefreshListener {
+            present!!.getData(this,formatMessage(eventBus!!.equName!!).toString()+eventBus!!.equNumber)
+        })
     }
 
     @Subscribe(sticky = true, threadMode = ThreadMode.MAIN)
     fun helloEventBus(eventBus: ControlDetailEventBus) {
+        this.eventBus=eventBus
         log(formatMessage(eventBus.equName!!).toString()+eventBus.equNumber)
         formatMessage(eventBus.equName!!)
         present=ControlDetailPresent(this)
@@ -57,6 +78,8 @@ class ControlDetail : AppCompatActivity(),ControlDetailView {
         }
     }
 
+
+
     //设备名字的枚举类
     //逆变器，PCS,超级电容，锂电池，双向DCDC
     enum class EquipmentName{
@@ -65,10 +88,12 @@ class ControlDetail : AppCompatActivity(),ControlDetailView {
 
     override fun onSuccess(entity: ControlDetailEntity) {
         log("onSuccess"+entity.nbJ01.bj)
+        mRefreshView!!.isRefreshing=false
     }
 
     override fun onError(e: String) {
         log("onError"+e)
+        mRefreshView!!.isRefreshing=false
     }
 
 
@@ -79,6 +104,20 @@ class ControlDetail : AppCompatActivity(),ControlDetailView {
     override fun onDestroy() {
         super.onDestroy()
         EventBus.getDefault().unregister(this)
+        present!!.onStop()
     }
 
+    override fun onStop() {
+        super.onStop()
+        present!!.onStop()
+    }
+
+    override fun onPause() {
+        super.onPause()
+        present!!.onStop()
+    }
+
+    public fun back(view:View){
+        finish()
+    }
 }

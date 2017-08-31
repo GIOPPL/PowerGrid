@@ -10,7 +10,7 @@ android {
         targetSdkVersion 25
         versionCode 1
         versionName "1.0"
-        testInstrumentationRunner "android.support.status.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "android.support.status2.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {

@@ -15,12 +15,10 @@ import com.gioppl.powergrid.R
 /**
  * Created by GIOPPL on 2017/8/8.
  */
-class ControlItemAdapt( mActivity: Activity,var mList:ArrayList<ControlEquipmentBean2.Equipment>) : RecyclerView.Adapter<ControlItemAdapt.MyViewHolder>() {
+class ControlItemAdapt( mActivity: Activity,var mList:ArrayList<ControlEquipmentBean.Equipment>) : RecyclerView.Adapter<ControlItemAdapt.MyViewHolder>() {
     private var mActivity: Activity? = null
 
     init {
-//        for (x in 1..10)
-//        mList!!.add(ControlEquipmentBean2.Equipment())
         this.mActivity = mActivity
     }
 

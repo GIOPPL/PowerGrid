@@ -1,0 +1,294 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fresco="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+
+    <LinearLayout
+        android:background="@mipmap/bg2"
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:padding="10dp">
+
+        <com.facebook.drawee.view.SimpleDraweeView
+            android:id="@+id/sim_controlDetail_image"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            fresco:placeholderImage="@drawable/ic_launcher" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical"
+            android:paddingLeft="100dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="5dp"
+                android:textColor="#fefefe"
+                android:text="逆变器"
+                android:textSize="30sp" />
+
+            <com.suke.widget.SwitchButton
+                android:id="@+id/switch_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:translationZ="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="30dp"
+        android:background="@drawable/shape_rect_blue"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_controlDetail_value1"
+                style="@style/tv_controlDetail"
+                android:text="80"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/tv_controlDetail_key1"
+                style="@style/tv_controlDetail"
+                android:text="日发电量"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="#fefefe" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_controlDetail_value2"
+                style="@style/tv_controlDetail"
+                android:text="0"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/tv_controlDetail_key2"
+                style="@style/tv_controlDetail"
+                android:text="效率"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="#fefefe" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_controlDetail_value3"
+                style="@style/tv_controlDetail"
+                android:text="0.1"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/tv_controlDetail_key3"
+                style="@style/tv_controlDetail"
+                android:text="直流功率"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:translationZ="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_rect_blue"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_controlDetail_value4"
+                style="@style/tv_controlDetail"
+                android:text="80"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/tv_controlDetail_key4"
+                style="@style/tv_controlDetail"
+                android:text="日发电量"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="#fefefe" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_controlDetail_value5"
+                style="@style/tv_controlDetail"
+                android:text="0"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/tv_controlDetail_key5"
+                style="@style/tv_controlDetail"
+                android:text="效率"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="#fefefe" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_controlDetail_value6"
+                style="@style/tv_controlDetail"
+                android:text="0.1"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/tv_controlDetail_key6"
+                style="@style/tv_controlDetail"
+                android:text="直流功率"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:translationZ="5dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/shape_rect_blue"
+        android:orientation="horizontal"
+        android:padding="5dp">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_controlDetail_value7"
+                style="@style/tv_controlDetail"
+                android:text="80"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/tv_controlDetail_key7"
+                style="@style/tv_controlDetail"
+                android:text="日发电量"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="#fefefe" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_controlDetail_value8"
+                style="@style/tv_controlDetail"
+                android:text="0"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/tv_controlDetail_key8"
+                style="@style/tv_controlDetail"
+                android:text="效率"
+                android:textSize="15sp" />
+        </LinearLayout>
+
+        <View
+            android:layout_width="1dp"
+            android:layout_height="70dp"
+            android:layout_gravity="center"
+            android:background="#fefefe" />
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/tv_controlDetail_value9"
+                style="@style/tv_controlDetail"
+                android:text="0.1"
+                android:textSize="35sp" />
+
+            <TextView
+                android:id="@+id/tv_controlDetail_key9"
+                style="@style/tv_controlDetail"
+                android:text="直流功率"
+                android:textSize="15sp" />
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

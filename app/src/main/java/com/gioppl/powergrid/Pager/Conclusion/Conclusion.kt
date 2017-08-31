@@ -69,7 +69,7 @@ class Conclusion : Fragment(), ConclusionView {
 
 
     override fun onCreateView(inflater: LayoutInflater?, container: ViewGroup?, savedInstanceState: Bundle?)
-            = inflater!!.inflate(R.layout.one, container, false)
+            = inflater!!.inflate(R.layout.conclusion, container, false)
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -77,13 +77,18 @@ class Conclusion : Fragment(), ConclusionView {
         initGif()
         initRollImage()
         initRollText()
+
+
+    }
+
+    override fun onResume() {
+        super.onResume()
         present = ConclusionPresent((activity as Context?)!!)
         present!!.onCreate()
         present!!.getData(this)
         //开启一个主动刷新的线程
         refreshThread()
     }
-
     private fun initRollText() {
         tickerView = activity.findViewById(R.id.tickerView) as TickerView?
         tickerView!!.setAnimationInterpolator(OvershootInterpolator ());
@@ -185,7 +190,15 @@ class Conclusion : Fragment(), ConclusionView {
         super.onPause()
         present!!.onStop()
     }
+    override fun onStop() {
+        super.onStop()
+        present!!.onStop()
+    }
 
+    override fun onDestroy() {
+        super.onDestroy()
+        present!!.onStop()
+    }
     fun log(text: String) {
         Log.i("##", text)
     }

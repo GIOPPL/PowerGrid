@@ -23,13 +23,31 @@
                 app:bvIndicatorColorSelected="@color/colorAccent"
                 app:bvIndicatorGravity="right"
                 app:bvTitleVisible="false"/>
-            <com.robinhood.ticker.TickerView
-                android:id="@+id/tickerView"
-                android:textColor="#fefefe"
-                android:textSize="16sp"
+            <LinearLayout
+                android:gravity="center_vertical"
                 android:layout_alignParentBottom="true"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:paddingLeft="10dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:src="@mipmap/trumpet"/>
+                <View
+                    android:layout_width="10dp"
+                    android:layout_height="10dp"/>
+                <com.robinhood.ticker.TickerView
+                    android:paddingLeft="15dp"
+                    android:id="@+id/tickerView"
+                    android:textColor="#fefefe"
+                    android:textSize="16sp"
+                    android:layout_width="0dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
         </RelativeLayout>
 
         <View

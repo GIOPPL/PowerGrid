@@ -20,15 +20,21 @@
 
     <!--主界面按鈕的STYLE-->
     <style name="bottomStyle" parent="AppTheme">
-    <item name="android:layout_width">0dp</item>
-    <item name="android:layout_weight">2</item>
-    <item name="android:layout_height">fill_parent</item>
-    <item name="android:background">#40ffffff</item>
-    <item name="android:paddingBottom">2dip</item>
-    <item name="android:paddingTop">7dip</item>
-    <item name="android:textColor">#ffffff</item>
-    <item name="android:textSize">12sp</item>
-    <item name="android:gravity">center_horizontal</item>
-    <item name="android:button">@android:color/transparent</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">2</item>
+        <item name="android:layout_height">fill_parent</item>
+        <item name="android:background">#40ffffff</item>
+        <item name="android:paddingBottom">2dip</item>
+        <item name="android:paddingTop">7dip</item>
+        <item name="android:textColor">#ffffff</item>
+        <item name="android:textSize">12sp</item>
+        <item name="android:gravity">center_horizontal</item>
+        <item name="android:button">@android:color/transparent</item>
+    </style>
+    <style name="tv_controlDetail" parent="AppTheme">
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:textColor">#fefefe</item>
+        <item name="android:gravity">center</item>
     </style>
 </resources>
