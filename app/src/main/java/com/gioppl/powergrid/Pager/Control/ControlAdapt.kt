@@ -12,6 +12,8 @@ import android.widget.TextView
 import com.facebook.drawee.view.SimpleDraweeView
 import com.gioppl.powergrid.Pager.Control.ControlDetail.ControlDetail
 import com.gioppl.powergrid.R
+import com.gioppl.powergrid.eventBus.ControlDetailEventBus
+import org.greenrobot.eventbus.EventBus
 
 
 /**
@@ -29,19 +31,20 @@ class ControlAdapt(mList: ArrayList<ControlEquipmentBean>, activity: Activity) :
     override fun onBindViewHolder(holder: MyViewHolder?, position: Int) {
         holder!!.tv_place!!.text=mList!![position].name
         showImage(holder,position)
-        setOnclick(holder.lin1!!,position)
-        setOnclick(holder.lin2!!,position)
-        setOnclick(holder.lin3!!,position)
-        setOnclick(holder.lin4!!,position)
-        setOnclick(holder.lin5!!,position)
-        setOnclick(holder.lin6!!,position)
-        setOnclick(holder.lin7!!,position)
-        setOnclick(holder.lin8!!,position)
-        setOnclick(holder.lin9!!,position)
+        setOnclick(holder.lin1!!,position,1)
+        setOnclick(holder.lin2!!,position,2)
+        setOnclick(holder.lin3!!,position,3)
+        setOnclick(holder.lin4!!,position,4)
+        setOnclick(holder.lin5!!,position,5)
+        setOnclick(holder.lin6!!,position,6)
+        setOnclick(holder.lin7!!,position,7)
+        setOnclick(holder.lin8!!,position,8)
+        setOnclick(holder.lin9!!,position,9)
     }
 
-    private fun  setOnclick(lin: LinearLayout,position: Int) {
+    private fun  setOnclick(lin: LinearLayout,listPosition: Int,namePosition:Int) {
         lin.setOnClickListener(View.OnClickListener {
+            EventBus.getDefault().postSticky(ControlDetailEventBus(mList!![listPosition].equipmentInfo[namePosition].equName,"0"+namePosition.toString()) );
             activity!!.startActivity(Intent(activity,ControlDetail::class.java))
         })
     }
