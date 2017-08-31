@@ -1,5 +1,6 @@
 package com.gioppl.powergrid
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentActivity
@@ -24,6 +25,7 @@ class MainActivity : FragmentActivity() {
     var viewPager: BanSliding? = null
     var mPagerList = ArrayList<Fragment>()
     var mSliding:SlidingRootNav ? =null
+
     override fun onCreate(savedInstanceState: Bundle?) {
         setContentView(R.layout.activity_main)
         super.onCreate(savedInstanceState)
@@ -68,6 +70,7 @@ class MainActivity : FragmentActivity() {
             override fun getCount(): Int = mPagerList.size
         }
         viewPager!!.adapter = pagerAdapt
+
     }
 
     private fun toast(text: String): Unit {
@@ -83,5 +86,8 @@ class MainActivity : FragmentActivity() {
     }
     fun log(text:String){
         Log.i("##",text)
+    }
+    public fun aboutMe(view:View){
+        startActivity(Intent(this@MainActivity,AboutMe::class.java))
     }
 }

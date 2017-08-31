@@ -24,6 +24,7 @@
         <activity android:name=".Pager.Data.ThreeDetail.ThreeDetail"/>
         <activity android:name=".MainActivity"/>
         <activity android:name=".Pager.Control.ControlDetail.ControlDetail"/>
+        <activity android:name=".AboutMe"/>
     </application>
 
 </manifest>
