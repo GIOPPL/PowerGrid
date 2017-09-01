@@ -44,7 +44,7 @@ class ControlAdapt(mList: ArrayList<ControlEquipmentBean>, activity: Activity) :
 
     private fun  setOnclick(lin: LinearLayout,listPosition: Int,namePosition:Int) {
         lin.setOnClickListener(View.OnClickListener {
-            EventBus.getDefault().postSticky(ControlDetailEventBus(mList!![listPosition].equipmentInfo[namePosition].equName,"0"+namePosition.toString()) );
+            EventBus.getDefault().postSticky(ControlDetailEventBus(mList!![listPosition].equipmentInfo[namePosition-1].equName,"0"+namePosition.toString()) );
             activity!!.startActivity(Intent(activity,ControlDetail::class.java))
         })
     }

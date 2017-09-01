@@ -3,15 +3,27 @@ package com.gioppl.powergrid.bean;
 /**
  * Created by GIOPPL on 2017/8/25.
  */
-
+/**
+ * CNZGL : 67.6kW
+ * FS : 0m/s
+ * BWZGL : 2.1kW
+ * FZZGL : 5kW
+ * WD : 31.1 °C
+ * RZ : 4W/m²
+ * RFDL : 99kWh
+ * MODE : 离网VF
+ * GFZGL : 4.512kW
+ * ZFDL : 0kWh
+ */
 public class ConclusionEntity {
 
-
     /**
-     * overview : {"CNZGL":"67.6kW","FS":"0m/s","BWZGL":"2.1kW","FZZGL":"5kW","WD":"31.1 °C","RZ":"4W/m²","RFDL":"99kWh","MODE":"离网VF","GFZGL":"4.512kW","ZFDL":"0kWh"}
+     * overview : {"CNZGL":"67.6kW","FS":"0m/s","BWZGL":"2.1kW","FZZGL":"5kW","WD":"31.1 °C","RZ":"4W/m²","RFDL":"99kWh","MODE":"离网VF","GFZGL":"45kW","ZFDL":"10998kWh"}
+     * notice : {"公告2":{"STATE":"1","CONTENT":"我们将于2017年9月11日11:00-12:30期间，对光伏微网后台进行定期维护。维护期间，系统将会暂停开放访问！"},"公告1":{"STATE":"1","CONTENT":"我们将于2017年8月31日22:00-23:30期间，对光伏微网后台进行升级。升级期间，系统将会暂停开放访问！"}}
      */
 
     private OverviewBean overview;
+    private NoticeBean notice;
 
     public OverviewBean getOverview() {
         return overview;
@@ -19,6 +31,14 @@ public class ConclusionEntity {
 
     public void setOverview(OverviewBean overview) {
         this.overview = overview;
+    }
+
+    public NoticeBean getNotice() {
+        return notice;
+    }
+
+    public void setNotice(NoticeBean notice) {
+        this.notice = notice;
     }
 
     public static class OverviewBean {
@@ -31,8 +51,8 @@ public class ConclusionEntity {
          * RZ : 4W/m²
          * RFDL : 99kWh
          * MODE : 离网VF
-         * GFZGL : 4.512kW
-         * ZFDL : 0kWh
+         * GFZGL : 45kW
+         * ZFDL : 10998kWh
          */
 
         private String CNZGL;
@@ -124,6 +144,84 @@ public class ConclusionEntity {
 
         public void setZFDL(String ZFDL) {
             this.ZFDL = ZFDL;
+        }
+    }
+
+    public static class NoticeBean {
+        /**
+         * 公告2 : {"STATE":"1","CONTENT":"我们将于2017年9月11日11:00-12:30期间，对光伏微网后台进行定期维护。维护期间，系统将会暂停开放访问！"}
+         * 公告1 : {"STATE":"1","CONTENT":"我们将于2017年8月31日22:00-23:30期间，对光伏微网后台进行升级。升级期间，系统将会暂停开放访问！"}
+         */
+
+        private 公告2Bean 公告2;
+        private 公告1Bean 公告1;
+
+        public 公告2Bean get公告2() {
+            return 公告2;
+        }
+
+        public void set公告2(公告2Bean 公告2) {
+            this.公告2 = 公告2;
+        }
+
+        public 公告1Bean get公告1() {
+            return 公告1;
+        }
+
+        public void set公告1(公告1Bean 公告1) {
+            this.公告1 = 公告1;
+        }
+
+        public static class 公告2Bean {
+            /**
+             * STATE : 1
+             * CONTENT : 我们将于2017年9月11日11:00-12:30期间，对光伏微网后台进行定期维护。维护期间，系统将会暂停开放访问！
+             */
+
+            private String STATE;
+            private String CONTENT;
+
+            public String getSTATE() {
+                return STATE;
+            }
+
+            public void setSTATE(String STATE) {
+                this.STATE = STATE;
+            }
+
+            public String getCONTENT() {
+                return CONTENT;
+            }
+
+            public void setCONTENT(String CONTENT) {
+                this.CONTENT = CONTENT;
+            }
+        }
+
+        public static class 公告1Bean {
+            /**
+             * STATE : 1
+             * CONTENT : 我们将于2017年8月31日22:00-23:30期间，对光伏微网后台进行升级。升级期间，系统将会暂停开放访问！
+             */
+
+            private String STATE;
+            private String CONTENT;
+
+            public String getSTATE() {
+                return STATE;
+            }
+
+            public void setSTATE(String STATE) {
+                this.STATE = STATE;
+            }
+
+            public String getCONTENT() {
+                return CONTENT;
+            }
+
+            public void setCONTENT(String CONTENT) {
+                this.CONTENT = CONTENT;
+            }
         }
     }
 }

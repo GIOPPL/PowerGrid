@@ -15,6 +15,6 @@ class SlidingDrawer(private var activity: FragmentActivity) {
 
     private fun initView() {
         fim_head= activity.findViewById(R.id.fim_sliding_head) as SimpleDraweeView?
-        fim_head!!.setImageURI("http://ac-ri5cfios.clouddn.com/3a898cb121c574756ca7.jpg")
+        fim_head!!.setImageURI("res://drawable/"+R.drawable.head)
     }
 }

@@ -20,7 +20,9 @@ import com.yarolegovich.slidingrootnav.SlideGravity
 import com.yarolegovich.slidingrootnav.SlidingRootNav
 import com.yarolegovich.slidingrootnav.SlidingRootNavBuilder
 
-class MainActivity : FragmentActivity() {
+class MainActivity : FragmentActivity()  {
+
+
     var mRadioGroup: RadioGroup? = null
     var viewPager: BanSliding? = null
     var mPagerList = ArrayList<Fragment>()
@@ -81,7 +83,7 @@ class MainActivity : FragmentActivity() {
     }
 
     override fun onTouchEvent(event: MotionEvent?): Boolean {
-        log(event!!.x.toString()+","+event!!.y.toString())
+        log(event!!.x.toString()+","+event.y.toString())
         return super.onTouchEvent(event)
     }
     fun log(text:String){
@@ -90,4 +92,21 @@ class MainActivity : FragmentActivity() {
     public fun aboutMe(view:View){
         startActivity(Intent(this@MainActivity,AboutMe::class.java))
     }
+
+
+//    override fun onNetworkConnected(type: NetUtils.NetType) {
+//        Alerter.create(this)
+//                .setTitle("网络已连接")
+//                .setText("连接正常")
+//                .setBackgroundColorRes(R.color.colorAccent) // or setBackgroundColorInt(Color.CYAN)
+//                .show();
+//    }
+//
+//    override fun onNetworkDisConnected() {
+//        Alerter.create(this)
+//                .setTitle("网络断啦")
+//                .setText("请检查网络")
+//                .setBackgroundColorRes(R.color.colorAccent) // or setBackgroundColorInt(Color.CYAN)
+//                .show();
+//    }
 }

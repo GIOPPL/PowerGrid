@@ -10,7 +10,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.LinearInterpolator
-import android.view.animation.OvershootInterpolator
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -22,10 +21,9 @@ import com.gioppl.powergrid.R
 import com.gioppl.powergrid.bean.ConclusionEntity
 import com.gioppl.powergrid.present.ConclusionPresent
 import com.gioppl.powergrid.view.ConclusionView
-import com.robinhood.ticker.TickerUtils
-import com.robinhood.ticker.TickerView
 import com.song.refresh_view.PullToRefreshView
 import ezy.ui.view.BannerView
+import ezy.ui.view.NoticeView
 import java.util.*
 
 
@@ -33,20 +31,15 @@ import java.util.*
  * Created by GIOPPL on 2017/7/24.
  */
 class Conclusion : Fragment(), ConclusionView {
-    //图片
-    //    var lin_light:LinearLayout?=null//光照
-    //    var lin_time:LinearLayout?=null//运行时间
-    //    var lin_power:LinearLayout?=null//总节能
-    //    var lin_temperature:LinearLayout?=null//温度
-    //    var lin_warning:LinearLayout?=null//报警
-    //    var lin_equipment:LinearLayout?=null//设备总数
-    //    var im_light: ImageView? = null
     var present: ConclusionPresent? = null
 
     var mRefreshView: PullToRefreshView? = null//下拉刷新控件
 
     var fim_head: SimpleDraweeView? = null//动态图
 
+    private var notice = "公告"
+
+    var noticeView:NoticeView?=null
 
     //gif图中的数据
     var tv_GFZGL: TextView? = null
@@ -57,7 +50,7 @@ class Conclusion : Fragment(), ConclusionView {
     //轮播图
     var banner1: BannerView<Any>? = null
     //轮播公告
-    var tickerView: TickerView? = null
+//    var tickerView: TickerView? = null
 
     //数据
     var tv_temperature: TextView? = null
@@ -77,8 +70,6 @@ class Conclusion : Fragment(), ConclusionView {
         initGif()
         initRollImage()
         initRollText()
-
-
     }
 
     override fun onResume() {
@@ -90,10 +81,9 @@ class Conclusion : Fragment(), ConclusionView {
         refreshThread()
     }
     private fun initRollText() {
-        tickerView = activity.findViewById(R.id.tickerView) as TickerView?
-        tickerView!!.setAnimationInterpolator(OvershootInterpolator ());
-        tickerView!!.setCharacterList(TickerUtils.getDefaultNumberList());
-        tickerView!!.setText(text.toString());
+//        tickerView = activity.findViewById(R.id.tickerView) as TickerView?
+//        tickerView!!.setAnimationInterpolator(OvershootInterpolator ());
+//        tickerView!!.setCharacterList(TickerUtils.getDefaultNumberList());
 
     }
 
@@ -135,14 +125,7 @@ class Conclusion : Fragment(), ConclusionView {
     }
 
     private fun initView() {
-//        im_light = activity.findViewById(R.id.im_main_light) as ImageView?
-//        lin_light = activity.findViewById(R.id.lin_main_light) as LinearLayout?
-//        lin_time = activity.findViewById(R.id.lin_main_time) as LinearLayout?
-//        lin_power = activity.findViewById(R.id.lin_main_power) as LinearLayout?
-//        lin_temperature = activity.findViewById(R.id.lin_main_temperature) as LinearLayout?
-//        lin_warning = activity.findViewById(R.id.lin_main_warning) as LinearLayout?
-//        lin_equipment = activity.findViewById(R.id.lin_main_equipment) as LinearLayout?
-
+        noticeView= activity.findViewById(R.id.notice) as NoticeView?
         tv_totalPower = activity.findViewById(R.id.tv_conclusion_totalPower) as TextView?
         tv_light = activity.findViewById(R.id.tv_conclusion_light) as TextView?
         tv_power = activity.findViewById(R.id.tv_conclusion_power) as TextView?
@@ -161,9 +144,12 @@ class Conclusion : Fragment(), ConclusionView {
         })
     }
 
-
-    var text=1000
-    var string="你好"
+//    var notices = List<String>("伪装者:胡歌演绎'痞子特工'",
+//            "无心法师:生死离别!月牙遭虐杀",
+//            "花千骨:尊上沦为花千骨",
+//            "综艺饭:胖轩偷看夏天洗澡掀波澜",
+//            "碟中谍4:阿汤哥高塔命悬一线,超越不可能")
+    var noticeList = ArrayList<String>()
     override fun onSuccess(mConclusionEntity: ConclusionEntity) {
         tv_CNZGL!!.text = "功率:" + mConclusionEntity.overview.cnzgl
         tv_FZZGL!!.text = "功率:" + mConclusionEntity.overview.fzzgl
@@ -177,13 +163,15 @@ class Conclusion : Fragment(), ConclusionView {
         tv_light!!.text = "光照:" + mConclusionEntity.overview.rz
 
         mRefreshView!!.isRefreshing = false
-        text+=1234
-        string+="你好"
-        tickerView!!.setText(text.toString()+string)
+        notice=mConclusionEntity.notice.公告1.content
+        noticeList!!.add(notice.substring(0,26))
+        noticeList!!.add(notice.substring(26,43))
+        noticeList!!.add(notice.substring(43,notice.length))
+        noticeView!!.start(noticeList);
     }
 
     override fun onError(e: String) {
-        //
+        mRefreshView!!.isRefreshing = false
     }
 
     override fun onPause() {

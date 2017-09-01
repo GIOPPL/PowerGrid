@@ -36,7 +36,7 @@
                     android:layout_height="25dp"
                     android:src="@mipmap/trumpet"/>
                 <View
-                    android:layout_width="10dp"
+                    android:layout_width="5dp"
                     android:layout_height="10dp"/>
                 <com.robinhood.ticker.TickerView
                     android:paddingLeft="15dp"
@@ -46,6 +46,19 @@
                     android:layout_width="0dp"
                     android:layout_weight="1"
                     android:layout_height="wrap_content" />
+                <ezy.ui.view.NoticeView
+                    android:layout_gravity="center"
+                    android:id="@+id/notice"
+                    android:layout_width="match_parent"
+                    android:layout_height="25dp"
+                    android:paddingLeft="15dp"
+                    app:nvTextMaxLines="1"
+                    app:nvIconPadding="5dp"
+                    app:nvIconTint="@android:color/white"
+                    app:nvTextColor="#FFFFFFFF"
+                    app:nvTextGravity="left"
+                    app:nvTextSize="14sp"
+                    />
             </LinearLayout>
 
         </RelativeLayout>

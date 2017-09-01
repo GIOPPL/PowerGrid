@@ -91,6 +91,7 @@ class Control : Fragment() , ControlView {
     }
 
     override fun onSuccess(entity: ControlEntity) {
+        mList!!.clear()
         log("success")
         var bean: ControlEquipmentBean?= ControlEquipmentBean()
         //提娜佳光伏单元
